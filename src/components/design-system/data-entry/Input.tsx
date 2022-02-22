@@ -4,15 +4,23 @@ import { HTMLInputTypeAttribute } from 'react';
 interface InputProps {
   name: string;
   value: string;
-  onChange: () => void;
+  onChange: (e: any) => void;
   label?: string;
-  type: HTMLInputTypeAttribute | undefined;
+  type?: HTMLInputTypeAttribute | undefined;
   placeholder?: string;
   error?: string;
 }
 
 const Input = (props: InputProps) => {
-  const { name, label, type, placeholder, error, value, onChange } = props;
+  const {
+    name,
+    label,
+    type = 'text',
+    placeholder,
+    error,
+    value,
+    onChange,
+  } = props;
 
   const inputClassName = cx(
     'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline',
@@ -29,6 +37,7 @@ const Input = (props: InputProps) => {
 
   const inputComponent = (
     <input
+      style={{ display: 'inline-block' }}
       name={name}
       className={inputClassName}
       id={name}
