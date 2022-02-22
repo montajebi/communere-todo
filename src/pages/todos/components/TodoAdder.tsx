@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { Button, Input } from '../design-system';
+import { Button, Input } from '../../../components/design-system';
 import { v4 as uuidV4 } from 'uuid';
 
 export interface Todo {
@@ -32,6 +32,14 @@ const TodoAdder = (props: TodoAdderProps) => {
 
   const isButtonDisabled = useMemo(() => todoTitle.length <= 3, [todoTitle]);
 
+  const error = useMemo(() => {
+    if (todoTitle.length <= 3) {
+      return 'Please enter more than 3 characters.';
+    }
+
+    return '';
+  }, [todoTitle]);
+
   return (
     <>
       <Input
@@ -41,6 +49,7 @@ const TodoAdder = (props: TodoAdderProps) => {
         onChange={(e) => setTodoTitle(e.target.value)}
         label="TODO:"
         placeholder="Write your todo title here..."
+        error={error}
       />
 
       <Button disabled={isButtonDisabled} onClick={onAddClick} block>
