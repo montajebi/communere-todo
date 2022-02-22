@@ -27,10 +27,14 @@ const TodoAdder = (props: TodoAdderProps) => {
     return newTodo;
   }, []);
 
-  const onAddClick = useCallback(() => {
-    props.onAddTodo(createNewTodo(todoTitle));
-    setTodoTitle('');
-  }, [todoTitle, createNewTodo, props]);
+  const onFormSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      props.onAddTodo(createNewTodo(todoTitle));
+      setTodoTitle('');
+    },
+    [todoTitle, createNewTodo, props],
+  );
 
   const isButtonDisabled = useMemo(() => todoTitle.length <= 3, [todoTitle]);
 
@@ -43,7 +47,7 @@ const TodoAdder = (props: TodoAdderProps) => {
   }, [todoTitle]);
 
   return (
-    <>
+    <form onSubmit={onFormSubmit}>
       <Input
         name="todo"
         type="text"
@@ -54,10 +58,10 @@ const TodoAdder = (props: TodoAdderProps) => {
         error={error}
       />
 
-      <Button disabled={isButtonDisabled} onClick={onAddClick} block>
+      <Button type="submit" disabled={isButtonDisabled} block>
         Add Todo
       </Button>
-    </>
+    </form>
   );
 };
 

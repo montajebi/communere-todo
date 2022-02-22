@@ -48,8 +48,7 @@ const TodosPage = () => {
   });
 
   return (
-    <div>
-      <Margin top="10" />
+    <Margin y="10">
       <Grid.Container cols="6" gap="4">
         <Grid.Item start="2" span="4">
           <Flex gap="4" direction="col">
@@ -59,7 +58,7 @@ const TodosPage = () => {
           </Flex>
         </Grid.Item>
       </Grid.Container>
-    </div>
+    </Margin>
   );
 };
 
