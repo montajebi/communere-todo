@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import browserStorage from 'store';
 
 const usePresistState = (storageKey: string, initialState: any) => {
   const [state, setInternalState] = useState(initialState);
 
   useEffect(() => {
-    const storageInBrowser = window.localStorage.getItem(storageKey);
+    const storageInBrowser = browserStorage.get(storageKey);
 
     if (storageInBrowser) {
       setInternalState(storageInBrowser);
@@ -12,7 +13,7 @@ const usePresistState = (storageKey: string, initialState: any) => {
   }, [storageKey]);
 
   const setState = (newState: typeof initialState) => {
-    window.localStorage.setItem(storageKey, newState);
+    browserStorage.set(storageKey, newState);
     setInternalState(newState);
   };
 
