@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import Grid from './components/design-system/layout/Grid';
 import { Button, Input, Margin } from './components/design-system/';
+import usePresistState from './hooks/usePresistState';
 
 const App = () => {
-  const [todo, setTodo] = useState('');
+  const [todo, setTodo] = usePresistState('todo', '');
 
   return (
     <div>
