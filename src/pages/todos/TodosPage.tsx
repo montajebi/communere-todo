@@ -39,7 +39,7 @@ const TodosPage = () => {
         key={todo.id}
         id={todo.id}
         title={todo.title}
-        createdDate={new Date()}
+        createdDate={todo.createdDate}
         done={todo.done}
         onDeleteClick={() => deleteTodo(todo.id)}
         onDoneClick={() => doneTodo(todo.id)}

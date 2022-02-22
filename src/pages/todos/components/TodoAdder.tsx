@@ -6,6 +6,7 @@ export interface Todo {
   title: string;
   id: string;
   done: boolean;
+  createdDate: Date;
 }
 
 interface TodoAdderProps {
@@ -20,6 +21,7 @@ const TodoAdder = (props: TodoAdderProps) => {
       id: uuidV4(),
       title,
       done: false,
+      createdDate: new Date(),
     };
 
     return newTodo;

@@ -26,10 +26,10 @@ const TodoCard = (props: TodoCardProps) => {
     'line-through': done,
   });
 
-  const doneText = done ? 'UnDone' : 'Done';
+  const doneText = done ? 'Un done' : 'Done';
 
   return (
-    <div key={id} className={classNmaes}>
+    <div id={`todo-${id}`} className={classNmaes}>
       <Flex direction="col" gap="3">
         <Flex direction="row" justify="between">
           <p className={titleClassNames}>{title}</p>
