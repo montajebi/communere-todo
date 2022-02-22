@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Grid from './components/design-system/layout/Grid';
-import Input from './components/design-system/data-entry/Input';
-import Margin from './components/design-system/spacing/Margin';
+import { Button, Input, Margin } from './components/design-system/';
 
 const App = () => {
   const [todo, setTodo] = useState('');
@@ -19,6 +18,10 @@ const App = () => {
             label="TODO:"
             placeholder="Write your todo title here..."
           />
+
+          <Button disabled={todo.length <= 3} block>
+            Add Todo
+          </Button>
         </Grid.Item>
       </Grid.Container>
     </div>

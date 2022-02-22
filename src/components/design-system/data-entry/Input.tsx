@@ -49,7 +49,7 @@ const Input = (props: InputProps) => {
   );
 
   const errorComponent = error ? (
-    <p className="text-red-500 text-xs italic">Please fill out this field.</p>
+    <p className="text-red-500 text-xs italic">{error}</p>
   ) : null;
 
   return (

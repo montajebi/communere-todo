@@ -25,11 +25,11 @@ interface ButtonProps {
   block?: boolean;
   loading?: boolean;
   disabled?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Button = ({
-  size = 'lg',
+  size = 'md',
   variant = 'primary',
   type = 'button',
   children,
